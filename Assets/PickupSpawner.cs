@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using VRTK;
 
-public class Spawner : MonoBehaviour {
+public class PickupSpawner : MonoBehaviour {
+	public bool IsSpawnable;
+
 	void Start() {
 		if (GetComponent<VRTK_InteractableObject> () == null) {
 			return;
@@ -13,6 +15,9 @@ public class Spawner : MonoBehaviour {
 	}
 
 	private void ObjectGrabbed(object sender, InteractableObjectEventArgs e) {
-		Instantiate ((VRTK_InteractableObject)sender);
+		if (this.IsSpawnable) {
+			Instantiate ((VRTK_InteractableObject)sender);
+			this.IsSpawnable = false;
+		}
 	}
 }

@@ -1841,8 +1841,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1057735862}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.0814524, y: -34.04604, z: -26.446617}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 7.081452, y: -34.04604, z: -26.44662}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1482175138}
@@ -3737,8 +3737,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2027517838}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.1, y: 14.55, z: 13.3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 6.11, y: 3, z: 4.61}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 12
@@ -3821,7 +3821,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   disableWhenIdle: 1
-  touchHighlightColor: {r: 0.99264705, g: 0.3941393, b: 0.3941393, a: 0}
+  touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   allowedTouchControllers: 0
   ignoredColliders: []
   isGrabbable: 1
@@ -3850,11 +3850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88f1bc27cc2304e8bbb8579a88044f75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &2034522158 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4000012781993728, guid: a33662819c96248408515839c84db573,
-    type: 2}
-  m_PrefabInternal: {fileID: 1847839678}
+  IsSpawnable: 1
 --- !u!1001 &2051398042
 Prefab:
   m_ObjectHideFlags: 0
