@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: _chunk_jungle_west_island_i_Alpha_3dcUV_Atlas_color
-  m_Shader: {fileID: 4800000, guid: b965f82ca09623c41afded17f5d27c27, type: 3}
+  m_Shader: {fileID: 4800000, guid: d0188c64b3ff75947a4e285da6cedcd4, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -54,11 +54,17 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
+    - _EmissiveIntensity: 1
+    - _Gloss: 0.5
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
@@ -71,6 +77,7 @@ Material:
     - _SpecIntensity: 0.2
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _Transparency: 0.5
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
