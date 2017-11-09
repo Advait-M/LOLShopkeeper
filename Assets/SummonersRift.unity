@@ -3267,6 +3267,7 @@ GameObject:
   - component: {fileID: 2027517845}
   - component: {fileID: 2027517844}
   - component: {fileID: 2027517843}
+  - component: {fileID: 2027517848}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -3436,6 +3437,17 @@ MonoBehaviour:
   useOverrideButton: 0
   allowedUseControllers: 0
   usingState: 0
+--- !u!114 &2027517848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2027517838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88f1bc27cc2304e8bbb8579a88044f75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2034522158 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000012781993728, guid: a33662819c96248408515839c84db573,
