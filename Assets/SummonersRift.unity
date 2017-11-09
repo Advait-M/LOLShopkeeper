@@ -534,7 +534,16 @@ Prefab:
       propertyPath: m_Name
       value: SRUAP_ChaosNexus_idle (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9500000, guid: 5a9e331203e8e7f489a173ec2f6b5335, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 38f884dda53674dd3b2b895fe95c37b8, type: 2}
+    - target: {fileID: 9500000, guid: 5a9e331203e8e7f489a173ec2f6b5335, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 9500000, guid: 5a9e331203e8e7f489a173ec2f6b5335, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: 5a9e331203e8e7f489a173ec2f6b5335, type: 3}
   m_IsPrefabParent: 0
 --- !u!1001 &574074718
@@ -975,6 +984,10 @@ Prefab:
       propertyPath: m_Name
       value: SRUAP_ChaosInhibitor_idle_normal (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 11100000, guid: dd150bddd976585408c52f419e678ec9, type: 3}
+      propertyPath: m_CullingType
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dd150bddd976585408c52f419e678ec9, type: 3}
   m_IsPrefabParent: 0
@@ -1032,6 +1045,10 @@ Prefab:
     - target: {fileID: 400040, guid: dd150bddd976585408c52f419e678ec9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 183.13399
+      objectReference: {fileID: 0}
+    - target: {fileID: 11100000, guid: dd150bddd976585408c52f419e678ec9, type: 3}
+      propertyPath: m_CullingType
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dd150bddd976585408c52f419e678ec9, type: 3}
@@ -1654,6 +1671,10 @@ Prefab:
       propertyPath: m_Name
       value: SRUAP_ChaosInhibitor_idle_normal (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 11100000, guid: dd150bddd976585408c52f419e678ec9, type: 3}
+      propertyPath: m_CullingType
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dd150bddd976585408c52f419e678ec9, type: 3}
   m_IsPrefabParent: 0
@@ -1791,6 +1812,25 @@ GameObject:
   m_PrefabParentObject: {fileID: 1000010636551700, guid: 41c0760bd81dd084283814f0c432b466,
     type: 2}
   m_PrefabInternal: {fileID: 1753781340}
+--- !u!1 &1709861873 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100094, guid: 5a9e331203e8e7f489a173ec2f6b5335, type: 3}
+  m_PrefabInternal: {fileID: 440051018}
+--- !u!111 &1709861874
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1709861873}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 5a9e331203e8e7f489a173ec2f6b5335, type: 3}
+  m_Animations:
+  - {fileID: 7400000, guid: 5a9e331203e8e7f489a173ec2f6b5335, type: 3}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1720413942 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1000010207334600, guid: 41c0760bd81dd084283814f0c432b466,
@@ -2199,6 +2239,10 @@ Prefab:
       propertyPath: m_Name
       value: SRUAP_ChaosInhibitor_idle_normal (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 11100000, guid: dd150bddd976585408c52f419e678ec9, type: 3}
+      propertyPath: m_CullingType
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dd150bddd976585408c52f419e678ec9, type: 3}
   m_IsPrefabParent: 0
@@ -2265,6 +2309,10 @@ Prefab:
     - target: {fileID: 100040, guid: dd150bddd976585408c52f419e678ec9, type: 3}
       propertyPath: m_Name
       value: SRUAP_ChaosInhibitor_idle_normal (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11100000, guid: dd150bddd976585408c52f419e678ec9, type: 3}
+      propertyPath: m_CullingType
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dd150bddd976585408c52f419e678ec9, type: 3}
@@ -2516,6 +2564,10 @@ Prefab:
     - target: {fileID: 100040, guid: dd150bddd976585408c52f419e678ec9, type: 3}
       propertyPath: m_Name
       value: SRUAP_ChaosInhibitor_idle_normal (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11100000, guid: dd150bddd976585408c52f419e678ec9, type: 3}
+      propertyPath: m_CullingType
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dd150bddd976585408c52f419e678ec9, type: 3}
