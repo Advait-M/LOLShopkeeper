@@ -96,11 +96,10 @@ public class algo : MonoBehaviour
         {
             Debug.Log("OnTriggerEnter: " + other.name);
             tableObjects.Add(other.gameObject);
+
+			tableObjects.RemoveAll (obj => obj == null);
 			Debug.Log("Items on table: " + tableObjects.Count);
-            foreach(GameObject sitem in tableObjects)
-            {
-//                Debug.Log(sitem.name);
-            }
+            
 //            Debug.Log("end");
 //            Debug.Log("LOOK FOR THIS");
             Debug.Log(findHigherLevelItem(getNames(tableObjects)));

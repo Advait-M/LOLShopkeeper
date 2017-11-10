@@ -4,7 +4,6 @@ using UnityEngine;
 using System.IO;
 using System;
 
-
 public class ChampionBuyers : MonoBehaviour
 {
 
@@ -59,7 +58,7 @@ public class ChampionBuyers : MonoBehaviour
 			Debug.Log("Destroyed!!");
 			championExists = false;
 			Destroy(theChamp);
-			Destroy(item);
+			Destroy(item.gameObject);
 		}
 	}
 }
