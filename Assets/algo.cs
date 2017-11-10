@@ -92,18 +92,17 @@ public class algo : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("beforeIf: " + other.name);
         if (!other.name.Equals("[VRTK][AUTOGEN][Controller][CollidersContainer]") && !other.name.Equals("DestinationPoint"))
         {
-            Debug.Log("Collided: " + other.name);
+            Debug.Log("OnTriggerEnter: " + other.name);
             tableObjects.Add(other.gameObject);
-            Debug.Log("Items in table");
+			Debug.Log("Items on table: " + tableObjects.Count);
             foreach(GameObject sitem in tableObjects)
             {
-                Debug.Log(sitem.name);
+//                Debug.Log(sitem.name);
             }
-            Debug.Log("end");
-            Debug.Log("LOOK FOR THIS");
+//            Debug.Log("end");
+//            Debug.Log("LOOK FOR THIS");
             Debug.Log(findHigherLevelItem(getNames(tableObjects)));
             if (findHigherLevelItem(getNames(tableObjects)) != null)
             {
@@ -124,7 +123,7 @@ public class algo : MonoBehaviour
     {
         if (!other.name.Equals("[VRTK][AUTOGEN][Controller][CollidersContainer]") && !other.name.Equals("DestinationPoint"))
         {
-            Debug.Log("Collided: " + other.name);
+            Debug.Log("onTriggerExit: " + other.name);
             tableObjects.Remove(other.gameObject);
             if (findHigherLevelItem(getNames(tableObjects)) != null)
             {
@@ -135,15 +134,14 @@ public class algo : MonoBehaviour
     }
     void CombineItem(List<GameObject> tableObjects, String lastObject)
     {
-        Debug.Log("Last item that worked" + lastObject);
-        Debug.Log("Combined to create: ");
+//        Debug.Log("Last item that worked" + lastObject);
         String newItem = findHigherLevelItem(getNames(tableObjects));
+		Debug.Log ("Combined to create: " + newItem);
         foreach (GameObject item in tableObjects)
         {
-            tableObjects.Remove(item);
             Destroy(item);
         }
-        tableObjects = new List<GameObject>();
+		tableObjects.Clear();
         Debug.Log("Created the object");
         Debug.Log(newItem);
         Instantiate(GameObject.Find(newItem), transform.position, transform.rotation);
