@@ -40,12 +40,14 @@ public class ChampionBuyers : MonoBehaviour {
         }
 	}
 
-    //void OnTriggerEnter(Collider item)
-    //{
-    //    if(item.name.Equals(currentChamp))
-    //    {
-    //        championExists = false;
-    //        Destroy(theChamp);
-    //    }
-    //}
+    void OnTriggerEnter(Collider item)
+    {
+        Debug.Log("Item in spawner" + item.name);
+        if (item.name.Equals(champions[currentChamp]))
+        {
+            championExists = false;
+            Destroy(theChamp);
+            Destroy(item);
+        }
+    }
 }
