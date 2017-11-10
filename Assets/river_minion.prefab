@@ -474,7 +474,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4829127280222696}
   m_Layer: 0
-  m_Name: river minion
+  m_Name: river_minion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
