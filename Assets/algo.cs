@@ -64,6 +64,7 @@ public class algo : MonoBehaviour {
         {
             CombineItem(tableObjects, other.name);
         }
+		Debug.Log (tableObjects);
     }
     void OnTriggerExit(Collider other)
     {
@@ -72,6 +73,7 @@ public class algo : MonoBehaviour {
         {
             CombineItem(tableObjects, other.name);
         }
+		Debug.Log (tableObjects);
     }
     void CombineItem(List<String> tableObjects, String lastObject)
     {
