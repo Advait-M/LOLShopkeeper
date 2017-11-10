@@ -139,9 +139,10 @@ public class algo : MonoBehaviour
         String newItem = findHigherLevelItem(getNames(tableObjects));
         foreach (GameObject item in tableObjects)
         {
+            tableObjects.Remove(item);
             Destroy(item);
         }
-        tableObjects = null;
+        tableObjects = new List<GameObject>();
         Debug.Log("Created the object");
         Debug.Log(newItem);
         Instantiate(GameObject.Find(newItem), transform.position, transform.rotation);
