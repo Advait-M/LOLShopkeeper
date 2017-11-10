@@ -17,7 +17,7 @@ public class algo : MonoBehaviour
 
     void Start()
     {
-        Debug.Log(findHigherLevelItem(new List<string>(new string[] { "Trinity Force", "Sheen", "Phage", "Stinger" })));
+        Debug.Log(findHigherLevelItem(new List<string>(new string[] {"Sheen", "Phage", "Stinger" })));
         Instantiate(GameObject.Find("Sheen"), transform.position, transform.rotation);
         Instantiate(GameObject.Find("Stinger"), transform.position, transform.rotation);
         Instantiate(GameObject.Find("Phage"), transform.position, transform.rotation);
@@ -40,16 +40,32 @@ public class algo : MonoBehaviour
             {
                 if (success)
                 {
-                    int cindex = s.IndexOf("(Clone)");
-                    String sc = s;
-                    if (cindex != -1)
+                    //int cindex = s.IndexOf("(Clone)");
+                    //String sc = s;
+                    //if (cindex != -1)
+                    //{
+                    //    sc = s.Substring(0, cindex);
+                    //}
+                    bool successinner = false;
+                    Debug.Log("actual items");
+                    foreach(String citem in items)
                     {
-                        sc = s.Substring(0, cindex);
+                        Debug.Log(citem);
+                        Debug.Log(s);
+                        if (s.StartsWith(citem))
+                        {
+                            Debug.Log("ITS IN");
+                            successinner = true;
+                        }
                     }
-                    if (!items.Contains(sc))
+                    if (!successinner)
                     {
                         success = false;
                     }
+                    //if (!items.Contains(sc))
+                    //{
+                    //    success = false;
+                    //}
                 }
                 length++;
             }
@@ -77,6 +93,12 @@ public class algo : MonoBehaviour
         {
             Debug.Log("Collided: " + other.name);
             tableObjects.Add(other.gameObject);
+            Debug.Log("Items in table");
+            foreach(GameObject sitem in tableObjects)
+            {
+                Debug.Log(sitem.name);
+            }
+            Debug.Log("end");
             if (findHigherLevelItem(getNames(tableObjects)) != null)
             {
                 CombineItem(tableObjects, other.name);
