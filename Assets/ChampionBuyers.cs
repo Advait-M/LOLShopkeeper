@@ -31,16 +31,24 @@ public class ChampionBuyers : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         if (!championExists)
         {
-            //yield return new WaitForSeconds(5);
-            List<String> championNames = new List<String>(champions.Keys);
-            Instantiate(GameObject.Find(championNames[playedTimes]), transform.position, transform.rotation);
-            currentChamp = championNames[playedTimes];
-            playedTimes++;
+            //Debug.Log("Instantiated new champ on updated");
+            StartCoroutine (updateChamp());
         }
+    }
+    IEnumerator updateChamp()
+    {
+        Debug.Log("TEST RUN??");
+        championExists = true;
+        yield return new WaitForSeconds(5);
+        List<String> championNames = new List<String>(champions.Keys);
+        Instantiate(GameObject.Find(championNames[playedTimes]), transform.position, transform.rotation);
+        Debug.Log("Instantiated: " + championNames[playedTimes]);
+        currentChamp = championNames[playedTimes];
+        playedTimes++;
     }
 
     void OnTriggerEnter(Collider item)
@@ -48,6 +56,7 @@ public class ChampionBuyers : MonoBehaviour
         Debug.Log("Item in spawner" + item.name);
         if (item.name.Equals(champions[currentChamp]))
         {
+            Debug.Log("Destroyed!!");
             championExists = false;
             Destroy(theChamp);
             Destroy(item);
