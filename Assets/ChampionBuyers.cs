@@ -8,7 +8,7 @@ public class ChampionBuyers : MonoBehaviour
 {
 
 	Dictionary<String, String> champions = new Dictionary<string, string>();
-	int playedTimes = 0;
+	int currentIndex = 0;
 	bool championExists = false;
 	string currentChamp = "";
 	GameObject theChamp;
@@ -19,13 +19,11 @@ public class ChampionBuyers : MonoBehaviour
 		champions.Add("Ashe", "Infinity Edge");
 		champions.Add("Cassio", "Tear of the Goddess");
 		champions.Add("Minion", "Serrated Dirk");
-		champions.Add("Sejuani", "Negatron Cloak");
-		champions.Add("Darius", "Warmog's Armor");
+		champions.Add("Sejuani", "Warmog's Armor");
 		List<String> championNames = new List<String>(champions.Keys);
-		Debug.Log("TEST" + championNames[playedTimes]);
-		theChamp = Instantiate(GameObject.Find(championNames[playedTimes]), transform.position, transform.rotation);
-		currentChamp = championNames[playedTimes];
-		playedTimes++;
+		theChamp = Instantiate(GameObject.Find(championNames[currentIndex]), transform.position, transform.rotation);
+		currentChamp = championNames[currentIndex];
+		currentIndex = UnityEngine.Random.Range (0, 3);
 		championExists = true;
 	}
 
@@ -40,22 +38,21 @@ public class ChampionBuyers : MonoBehaviour
 	}
 	IEnumerator updateChamp()
 	{
-		Debug.Log("TEST RUN??");
 		championExists = true;
 		yield return new WaitForSeconds(5);
 		List<String> championNames = new List<String>(champions.Keys);
-		Instantiate(GameObject.Find(championNames[playedTimes]), transform.position, transform.rotation);
-		Debug.Log("Instantiated: " + championNames[playedTimes]);
-		currentChamp = championNames[playedTimes];
-		playedTimes++;
+		theChamp = Instantiate(GameObject.Find(championNames[currentIndex]), transform.position, transform.rotation);
+		currentChamp = championNames[currentIndex];
+		Debug.Log("New Champion: " + championNames[currentIndex]);
+		currentIndex = UnityEngine.Random.Range (0, 3);
 	}
 
 	void OnTriggerEnter(Collider item)
 	{
-		Debug.Log("Item in spawner" + item.name);
-		if (item.name.Equals(champions[currentChamp]))
+		Debug.Log("Item in Champion Spawner: " + item.name);
+		if (item.name.StartsWith(champions[currentChamp]))
 		{
-			Debug.Log("Destroyed!!");
+			Debug.Log("Item Matches Champion Desire");
 			championExists = false;
 			Destroy(theChamp);
 			Destroy(item.gameObject);
