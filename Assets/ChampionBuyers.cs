@@ -18,12 +18,14 @@ public class ChampionBuyers : MonoBehaviour
 	{
 		champions.Add("Ashe", "Infinity Edge");
 		champions.Add("Cassio", "Boots of Speed");
-		champions.Add("Caitlyn", "Trinity Force");
-		champions.Add("Sejuani", "Warmog's Armor");
-		List<String> championNames = new List<String>(champions.Keys);
+		champions.Add("Caitlyn", "Tiamat");
+        champions.Add("Ezreal", "Trinity Force");
+        champions.Add("Sejuani", "Warmog's Armor");
+
+        List<String> championNames = new List<String>(champions.Keys);
 		theChamp = Instantiate(GameObject.Find(championNames[currentIndex]), transform.position, transform.rotation);
 		currentChamp = championNames[currentIndex];
-		currentIndex = UnityEngine.Random.Range (0, 3);
+		currentIndex = UnityEngine.Random.Range (0, 4);
 		championExists = true;
 	}
 
@@ -44,7 +46,7 @@ public class ChampionBuyers : MonoBehaviour
 		theChamp = Instantiate(GameObject.Find(championNames[currentIndex]), transform.position, transform.rotation);
 		currentChamp = championNames[currentIndex];
 		Debug.Log("New Champion: " + championNames[currentIndex]);
-		currentIndex = UnityEngine.Random.Range (0, 3);
+		currentIndex = UnityEngine.Random.Range (0, 4);
 	}
 
 	void OnTriggerEnter(Collider item)
