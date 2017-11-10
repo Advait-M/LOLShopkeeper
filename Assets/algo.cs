@@ -92,25 +92,25 @@ public class algo : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        if (!other.name.Equals("[VRTK][AUTOGEN][Controller][CollidersContainer]") && !other.name.Equals("DestinationPoint"))
-        {
-            Debug.Log("OnTriggerEnter: " + other.name);
-            tableObjects.Add(other.gameObject);
+		if (other.gameObject.layer != 8) {
+			return;
+		}
+		Debug.Log("OnTriggerEnter: " + other.name);
+		tableObjects.Add(other.gameObject);
 
-			tableObjects.RemoveAll (obj => obj == null);
-			Debug.Log("Items on table: " + tableObjects.Count);
-            foreach(GameObject item in tableObjects)
-            {
-                Debug.Log("This is an item: " + item.name);
-            }
-//            Debug.Log("end");
-//            Debug.Log("LOOK FOR THIS");
-            Debug.Log(findHigherLevelItem(getNames(tableObjects)));
-            if (findHigherLevelItem(getNames(tableObjects)) != null)
-            {
-                CombineItem(tableObjects, other.name);
-            }
-        }
+		tableObjects.RemoveAll (obj => obj == null);
+		Debug.Log("Items on table: " + tableObjects.Count);
+		foreach(GameObject item in tableObjects)
+		{
+			Debug.Log("This is an item: " + item.name);
+		}
+		//            Debug.Log("end");
+		//            Debug.Log("LOOK FOR THIS");
+		Debug.Log(findHigherLevelItem(getNames(tableObjects)));
+		if (findHigherLevelItem(getNames(tableObjects)) != null)
+		{
+			CombineItem(tableObjects, other.name);
+		}
     }
     List<String> getNames(List<GameObject> lg)
     {
@@ -123,15 +123,15 @@ public class algo : MonoBehaviour
     }
     void OnTriggerExit(Collider other)
     {
-        if (!other.name.Equals("[VRTK][AUTOGEN][Controller][CollidersContainer]") && !other.name.Equals("DestinationPoint"))
-        {
-            Debug.Log("onTriggerExit: " + other.name);
-            tableObjects.Remove(other.gameObject);
-            if (findHigherLevelItem(getNames(tableObjects)) != null)
-            {
-                CombineItem(tableObjects, other.name);
-            }
-        }
+		if (other.gameObject.layer != 8) {
+			return;
+		}
+		Debug.Log("onTriggerExit: " + other.name);
+		tableObjects.Remove(other.gameObject);
+		if (findHigherLevelItem(getNames(tableObjects)) != null)
+		{
+			CombineItem(tableObjects, other.name);
+		}
 		Debug.Log (tableObjects);
     }
     void CombineItem(List<GameObject> tableObjects, String lastObject)
