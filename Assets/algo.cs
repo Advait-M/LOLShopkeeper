@@ -8,13 +8,19 @@ using Pathfinding.Serialization.JsonFx;
 using System.Reflection;
 using Newtonsoft.Json;
 using System.Linq;
+using System.Text;
 
-public class algo : MonoBehaviour {
+public class algo : MonoBehaviour
+{
     // Use this for initialization
-    List<String> tableObjects = new List<String>();
+    List<GameObject> tableObjects = new List<GameObject>();
 
-    void Start() {
+    void Start()
+    {
         Debug.Log(findHigherLevelItem(new List<string>(new string[] { "Trinity Force", "Sheen", "Phage", "Stinger" })));
+        Instantiate(GameObject.Find("Sheen"), transform.position, transform.rotation);
+        Instantiate(GameObject.Find("Stinger"), transform.position, transform.rotation);
+        Instantiate(GameObject.Find("Phage"), transform.position, transform.rotation);
     }
 
     String findHigherLevelItem(List<String> items)
@@ -34,14 +40,20 @@ public class algo : MonoBehaviour {
             {
                 if (success)
                 {
-                    if (!items.Contains(s))
+                    int cindex = s.IndexOf("(Clone)");
+                    String sc = s;
+                    if (cindex != -1)
+                    {
+                        sc = s.Substring(0, cindex);
+                    }
+                    if (!items.Contains(sc))
                     {
                         success = false;
                     }
                 }
                 length++;
             }
-            if(items.Count!=length)
+            if (items.Count != length)
             {
                 success = false;
             }
@@ -52,35 +64,54 @@ public class algo : MonoBehaviour {
         };
         return null;
     }
-    
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
     void OnTriggerEnter(Collider other)
     {
-        tableObjects.Add(other.name);
-        if (findHigherLevelItem(tableObjects) != null)
+        Debug.Log("beforeIf: " + other.name);
+        if (!other.name.Equals("[VRTK][AUTOGEN][Controller][CollidersContainer]") && !other.name.Equals("DestinationPoint"))
         {
-            CombineItem(tableObjects, other.name);
+            Debug.Log("Collided: " + other.name);
+            tableObjects.Add(other.gameObject);
+            if (findHigherLevelItem(getNames(tableObjects)) != null)
+            {
+                CombineItem(tableObjects, other.name);
+            }
         }
+    }
+    List<String> getNames(List<GameObject> lg)
+    {
+        List<String> gNames = new List<String>();
+        foreach (GameObject g in lg)
+        {
+            gNames.Add(g.name);
+        }
+        return gNames;
     }
     void OnTriggerExit(Collider other)
     {
-        tableObjects.Remove(other.name);
-        if (findHigherLevelItem(tableObjects) != null)
+        if (!other.name.Equals("[VRTK][AUTOGEN][Controller][CollidersContainer]") && !other.name.Equals("DestinationPoint"))
         {
-            CombineItem(tableObjects, other.name);
+            Debug.Log("Collided: " + other.name);
+            tableObjects.Remove(other.gameObject);
+            if (findHigherLevelItem(getNames(tableObjects)) != null)
+            {
+                CombineItem(tableObjects, other.name);
+            }
         }
     }
-    void CombineItem(List<String> tableObjects, String lastObject)
+    void CombineItem(List<GameObject> tableObjects, String lastObject)
     {
         Debug.Log("Last item that worked" + lastObject);
         Debug.Log("Combined to create: ");
-        String newItem = findHigherLevelItem(tableObjects);
-        foreach (String item in tableObjects)
+        String newItem = findHigherLevelItem(getNames(tableObjects));
+        foreach (GameObject item in tableObjects)
         {
-            Destroy(GameObject.Find(item));
+            Destroy(item);
         }
         tableObjects = null;
         Debug.Log("Created the object");
