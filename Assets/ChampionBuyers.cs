@@ -5,8 +5,7 @@ using System.IO;
 using System;
 
 
-public class ChampionBuyers : MonoBehaviour
-{
+public class ChampionBuyers : MonoBehaviour {
 
     Dictionary<String, String> champions = new Dictionary<string, string>();
     int playedTimes = 0;
@@ -15,12 +14,11 @@ public class ChampionBuyers : MonoBehaviour
     GameObject theChamp;
 
     // Use this for initialization
-    void Start()
-    {
-        champions.Add("Ashe", "Infinity Edge");
-        champions.Add("Cassio", "Tear of the Goddess");
+    void Start () {
+        champions.Add("Ashe","Infinity Edge");
+        champions.Add("Cassio", "Boots of Speed");
         champions.Add("Minion", "Serrated Dirk");
-        champions.Add("Sejuani", "Negatron Cloak");
+        champions.Add("Sejuani", "Warmog's Armor");
         champions.Add("Darius", "Warmog's Armor");
         List<String> championNames = new List<String>(champions.Keys);
         Debug.Log("TEST" + championNames[playedTimes]);
@@ -29,37 +27,25 @@ public class ChampionBuyers : MonoBehaviour
         playedTimes++;
         championExists = true;
     }
-
-    // Update is called once per frame
-    void LateUpdate()
-    {
-        if (!championExists)
+	
+	// Update is called once per frame
+	void Update () {
+        if(!championExists)
         {
-            //Debug.Log("Instantiated new champ on updated");
-            StartCoroutine (updateChamp());
+            //yield return new WaitForSeconds(5);
+            List<String> championNames = new List<String>(champions.Keys);
+            Instantiate(GameObject.Find(championNames[playedTimes]), transform.position, transform.rotation);
+            currentChamp = championNames[playedTimes];
+            playedTimes++;
         }
-    }
-    IEnumerator updateChamp()
-    {
-        Debug.Log("TEST RUN??");
-        championExists = true;
-        yield return new WaitForSeconds(5);
-        List<String> championNames = new List<String>(champions.Keys);
-        Instantiate(GameObject.Find(championNames[playedTimes]), transform.position, transform.rotation);
-        Debug.Log("Instantiated: " + championNames[playedTimes]);
-        currentChamp = championNames[playedTimes];
-        playedTimes++;
-    }
+	}
 
-    void OnTriggerEnter(Collider item)
-    {
-        Debug.Log("Item in spawner" + item.name);
-        if (item.name.Equals(champions[currentChamp]))
-        {
-            Debug.Log("Destroyed!!");
-            championExists = false;
-            Destroy(theChamp);
-            Destroy(item);
-        }
-    }
+    //void OnTriggerEnter(Collider item)
+    //{
+    //    if(item.name.Equals(currentChamp))
+    //    {
+    //        championExists = false;
+    //        Destroy(theChamp);
+    //    }
+    //}
 }
