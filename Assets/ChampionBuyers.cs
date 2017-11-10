@@ -17,8 +17,8 @@ public class ChampionBuyers : MonoBehaviour
 	void Start()
 	{
 		champions.Add("Ashe", "Infinity Edge");
-		champions.Add("Cassio", "Tear of the Goddess");
-		champions.Add("Minion", "Serrated Dirk");
+		champions.Add("Cassio", "Boots of Speed");
+		champions.Add("Caitlyn", "Trinity Force");
 		champions.Add("Sejuani", "Warmog's Armor");
 		List<String> championNames = new List<String>(champions.Keys);
 		theChamp = Instantiate(GameObject.Find(championNames[currentIndex]), transform.position, transform.rotation);
