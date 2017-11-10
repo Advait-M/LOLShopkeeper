@@ -17,10 +17,10 @@ public class algo : MonoBehaviour
 
     void Start()
     {
-        Debug.Log(findHigherLevelItem(new List<string>(new string[] {"Sheen", "Phage", "Stinger" })));
-        Instantiate(GameObject.Find("Sheen"), transform.position, transform.rotation);
-        Instantiate(GameObject.Find("Stinger"), transform.position, transform.rotation);
-        Instantiate(GameObject.Find("Phage"), transform.position, transform.rotation);
+        Debug.Log(findHigherLevelItem(new List<string>(new string[] {"Sheen(Clone)", "Phage", "Stinger" })));
+        //Instantiate(GameObject.Find("Sheen"), transform.position, transform.rotation);
+        //Instantiate(GameObject.Find("Stinger"), transform.position, transform.rotation);
+        //Instantiate(GameObject.Find("Phage"), transform.position, transform.rotation);
     }
 
     String findHigherLevelItem(List<String> items)
@@ -47,14 +47,15 @@ public class algo : MonoBehaviour
                     //    sc = s.Substring(0, cindex);
                     //}
                     bool successinner = false;
-                    Debug.Log("actual items");
+                    //Debug.Log("actual items");
                     foreach(String citem in items)
                     {
-                        Debug.Log(citem);
-                        Debug.Log(s);
-                        if (s.StartsWith(citem))
+                        //Debug.Log(citem);
+                        //Debug.Log("we have");
+                        //Debug.Log(s);
+                        if (citem.StartsWith(s))
                         {
-                            Debug.Log("ITS IN");
+                            //Debug.Log("ITS IN");
                             successinner = true;
                         }
                     }
@@ -75,9 +76,12 @@ public class algo : MonoBehaviour
             }
             if (success)
             {
+                //Debug.Log("WE AREGOOD");
+                //Debug.Log(b.Name);
                 return (b.Name);
             }
         };
+        Debug.Log("WE ARE NULL");
         return null;
     }
 
@@ -99,6 +103,8 @@ public class algo : MonoBehaviour
                 Debug.Log(sitem.name);
             }
             Debug.Log("end");
+            Debug.Log("LOOK FOR THIS");
+            Debug.Log(findHigherLevelItem(getNames(tableObjects)));
             if (findHigherLevelItem(getNames(tableObjects)) != null)
             {
                 CombineItem(tableObjects, other.name);
