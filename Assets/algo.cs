@@ -99,7 +99,10 @@ public class algo : MonoBehaviour
 
 			tableObjects.RemoveAll (obj => obj == null);
 			Debug.Log("Items on table: " + tableObjects.Count);
-            
+            foreach(GameObject item in tableObjects)
+            {
+                Debug.Log("This is an item: " + item.name);
+            }
 //            Debug.Log("end");
 //            Debug.Log("LOOK FOR THIS");
             Debug.Log(findHigherLevelItem(getNames(tableObjects)));
